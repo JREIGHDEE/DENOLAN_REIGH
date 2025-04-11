@@ -1,71 +1,94 @@
 /* styles.css */
 body {
-  background: linear-gradient(to bottom, #faf6f0, #e8e1d4);
-  font-family: 'Roboto', sans-serif;
-  color: #333;
-  margin: 0;
-  padding: 0;
+  background-color: #ffffff; /* Simple white background like the sketch */
+  font-family: sans-serif; /* Default sans-serif, or choose one closer to sketch if desired */
+  color: #000000; /* Black text */
 }
 
-.portfolio-wrapper {
-  background-color: rgba(255, 255, 255, 0.9);
-  padding: 2rem 0;
-  box-shadow: inset 0 0 50px rgba(0,0,0,0.1);
+/* Apply a border to the card to match the sketch's outer box */
+.card {
+  border: 2px solid black;
+  border-radius: 0; /* Sharp corners like the sketch */
+  background-color: white; /* Ensure card background is white */
 }
 
-header {
-  background: url('https://www.transparenttextures.com/patterns/wood-pattern.png');
-  background-size: cover;
-  color: #2c2c2c;
+/* Style for the blocky font look in the sketch (using a common system font fallback) */
+.sketch-font {
+    font-family: 'Consolas', 'Monaco', 'Courier New', monospace; /* Monospace fonts often look blocky */
+    font-weight: bold; /* Make text bolder like the sketch */
+    text-transform: uppercase; /* Uppercase text like sketch */
+    letter-spacing: 1px; /* Optional: add slight letter spacing */
 }
 
-.profile-img {
-  max-width: 180px;
-  border-radius: 50%;
-  border: 5px solid #fff;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  margin-bottom: 20px;
+/* Style navigation tabs to resemble the sketch */
+.nav-tabs {
+  border-bottom: 2px solid black; /* Match main border thickness */
 }
 
-h1 {
-  font-family: 'Playfair Display', serif;
-  font-size: 3rem;
-  margin-top: 1rem;
-  color: #333;
+.nav-tabs .nav-item {
+  margin-bottom: -2px; /* Overlap bottom border */
 }
 
-.lead {
-  font-size: 1.25rem;
-  color: #555;
+.nav-tabs .nav-link {
+  border: 2px solid black;
+  border-bottom: none; /* Remove bottom border for inactive */
+  border-radius: 0; /* Sharp corners */
+  color: black;
+  background-color: #f8f9fa; /* Light grey for inactive tabs */
+  margin-right: -2px; /* Overlap side borders */
 }
 
-.section-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 2rem;
-  border-bottom: 3px solid #b59f6f;
-  padding-bottom: 0.5rem;
-  margin-bottom: 1.5rem;
-  color: #222;
+.nav-tabs .nav-link.active {
+  background-color: white; /* White background for active tab */
+  border: 2px solid black;
+  border-bottom: 2px solid white; /* Hide bottom border by matching background */
+  color: black;
+  font-weight: bold; /* Make active tab text bold */
 }
 
-ul {
-  list-style-type: square;
-  padding-left: 1.5rem;
+/* Ensure focus state doesn't add unwanted colors */
+.nav-tabs .nav-link:hover,
+.nav-tabs .nav-link:focus {
+   border-color: black;
+   isolation: isolate; /* Helps with z-index/overlap issues */
 }
 
-ul li {
-  font-size: 1.1rem;
-  margin-bottom: 0.75rem;
+/* Style the tab content area */
+.tab-content {
+  border: 2px solid black; /* Match main border thickness */
+  border-top: none; /* Remove top border as tabs handle it */
+  background-color: white;
 }
 
-ul li strong {
-  font-weight: 600;
-  color: #444;
+/* Style pills like the sketch (rectangles with borders) */
+.badge {
+  border: 1px solid black;
+  border-radius: 0; /* Sharp corners for pills */
+  padding: 0.5em 0.75em; /* Adjust padding as needed */
 }
 
-.content {
-  background-color: rgba(255, 255, 255, 0.85);
-  padding: 2rem;
-  border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+/* Style social icon buttons */
+.btn-outline-dark.rounded-circle {
+    border: 2px solid black;
+    color: black; /* Make sure the icon placeholder or text is visible */
+    display: flex; /* Helps center content if you add icons */
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-outline-dark.rounded-circle:hover {
+    background-color: #e9ecef; /* Slight hover effect */
+    color: black;
+}
+
+/* Ensure images within project columns have borders */
+.project-col img,
+.tab-pane img {
+    border: 1px solid #dee2e6; /* Add a light border to images */
+}
+
+/* Remove default list styling if using ul in tabs */
+.tab-pane ul {
+  list-style-type: none;
+  padding-left: 0;
 }
