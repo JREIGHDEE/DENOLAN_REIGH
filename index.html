@@ -8,22 +8,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <!--
-      IF YOU HAVE A SPECIFIC SKETCHY FONT:
-      1. Uncomment the @import below and replace 'URL_TO_YOUR_SKETCHY_FONT'.
-      2. Make sure the font-family name in '.sketch-font' matches.
-    -->
     <style>
-        /* @import url('URL_TO_YOUR_SKETCHY_FONT'); */
         body {
             font-family: 'Inter', sans-serif;
         }
         .sketch-font {
-           /* font-family: 'Your Sketch Font Name', cursive; */ /* Example using 'cursive' fallback */
-           /* Adjust font properties as needed if you use a sketch font */
+           /* font-family: 'Your Sketch Font Name', cursive; */
         }
 
-        /* --- Tab Styling --- */
         .tab-button {
             @apply relative py-3 px-5 transition-colors duration-300 ease-out;
         }
@@ -33,40 +25,38 @@
             bottom: 0;
             left: 0;
             right: 0;
-            height: 3px; /* Underline thickness */
+            height: 3px;
             background-color: transparent;
             transform: scaleX(0);
             transform-origin: bottom center;
             transition: transform 0.3s ease-out, background-color 0.3s ease-out;
-            @apply bg-indigo-500; /* Underline color */
+            @apply bg-indigo-500;
         }
         .tab-button:hover::after,
         .tab-button:focus::after {
-            transform: scaleX(0.8); /* Slightly smaller underline on hover/focus */
+            transform: scaleX(0.8);
             background-color: theme('colors.indigo.300');
         }
         .tab-button.active {
-            @apply text-indigo-600; /* Active text color */
+            @apply text-indigo-600;
         }
         .tab-button.active::after {
-            transform: scaleX(1); /* Full underline for active */
+            transform: scaleX(1);
             background-color: theme('colors.indigo.500');
         }
 
-        /* --- Tab Pane Animations --- */
         .tab-pane {
-           display: none; /* Use display none initially */
+           display: none;
            opacity: 0;
            transform: translateY(10px);
            transition: opacity 0.4s ease-out, transform 0.4s ease-out;
         }
         .tab-pane.active {
-            display: block; /* Change display property */
+            display: block;
             opacity: 1;
             transform: translateY(0);
         }
 
-        /* --- General Animations --- */
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
@@ -80,15 +70,13 @@
         }
         .animate-fadeInUp {
              animation: fadeInUp 0.6s ease-out forwards;
-             opacity: 0; /* Start hidden */
+             opacity: 0;
         }
-        /* Staggered animation for skills (optional, applied via JS if needed or manually with delay utilities) */
         .skill-pill {
             opacity: 0;
             animation: fadeInUp 0.5s ease-out forwards;
         }
 
-        /* Custom scrollbar (Optional, Webkit browsers) */
         ::-webkit-scrollbar {
             width: 8px;
         }
@@ -108,24 +96,18 @@
 </head>
 <body class="bg-gradient-to-br from-slate-50 to-slate-200 text-slate-800 selection:bg-indigo-100 selection:text-indigo-700 antialiased">
 
-  <!-- Increased vertical padding -->
   <div class="container max-w-4xl mx-auto my-16 sm:my-24 px-4">
 
-    <!-- Profile Card: Enhanced Shadow, Padding, Animation -->
     <div class="bg-white border border-slate-200/80 rounded-2xl shadow-xl text-center mb-10 p-8 md:p-12 animate-fadeInUp">
-        <!-- Profile Image: Hover effect, border -->
         <div class="relative inline-block mb-6 group">
             <img src="https://i.ibb.co/p8v5r1r/face-picture.jpg" alt="Denolan Profile Photo"
                  class="rounded-full mx-auto block w-44 h-44 border-4 border-white shadow-lg transition-transform duration-300 ease-out group-hover:scale-105">
-            <!-- Animated ring on hover -->
             <div class="absolute inset-0 rounded-full border-4 border-indigo-300/50 opacity-0 group-hover:opacity-100 group-hover:animate-pulse transition-opacity duration-300 ease-out"></div>
         </div>
 
-        <!-- Name and Title: Larger text, accent color -->
         <h3 class="font-extrabold text-3xl md:text-4xl mb-1 text-slate-900 sketch-font">Julianna Reigh Denolan</h3>
         <p class="text-indigo-500 mb-6 text-xl sketch-font font-medium">Aspiring IT Professional</p>
 
-        <!-- Social Links: Real Icons, Enhanced Hover -->
         <div class="flex justify-center gap-4 mb-8">
           <a href="#" aria-label="GitHub Profile" title="GitHub"
              class="bg-slate-100 text-slate-700 hover:bg-indigo-500 hover:text-white transform hover:scale-110 hover:-translate-y-1 transition-all duration-300 ease-out rounded-full w-12 h-12 flex items-center justify-center shadow-md hover:shadow-lg">
@@ -141,7 +123,6 @@
           </a>
         </div>
 
-        <!-- Skills Pills: Animated Entrance, Varied Colors -->
         <div class="flex justify-center flex-wrap gap-3">
           <span class="skill-pill bg-indigo-100 text-indigo-700 rounded-full px-5 py-2 text-sm font-semibold shadow-sm hover:bg-indigo-200 transition-colors duration-200 sketch-font cursor-default" style="animation-delay: 0.1s;">HTML</span>
           <span class="skill-pill bg-indigo-100 text-indigo-700 rounded-full px-5 py-2 text-sm font-semibold shadow-sm hover:bg-indigo-200 transition-colors duration-200 sketch-font cursor-default" style="animation-delay: 0.15s;">CSS</span>
@@ -153,7 +134,6 @@
         </div>
     </div>
 
-    <!-- Tab Navigation Container -->
     <div class="sticky top-0 z-10 bg-gradient-to-b from-slate-50/95 via-slate-100/95 to-slate-200/95 backdrop-blur-sm -mx-4 px-4 mb-0 border-b border-slate-300/80 shadow-sm">
         <nav class="flex justify-center space-x-4 sm:space-x-8 max-w-xl mx-auto" aria-label="Tabs">
             <button data-tab="background-tab-pane"
@@ -174,10 +154,8 @@
         </nav>
     </div>
 
-    <!-- Tab Content Area: Enhanced shadow, padding -->
     <div class="bg-white border border-t-0 border-slate-200/80 rounded-b-2xl shadow-xl p-8 md:p-10 min-h-[300px] relative overflow-hidden">
 
-      <!-- Education Tab -->
       <div id="background-tab-pane" class="tab-pane active" role="tabpanel" aria-labelledby="background-tab">
         <h4 class="sketch-font text-2xl font-bold mb-5 text-indigo-700">My Education</h4>
         <div class="prose prose-lg max-w-none text-slate-700 space-y-4">
@@ -190,16 +168,13 @@
         </div>
       </div>
 
-      <!-- Projects Tab -->
       <div id="projects-tab-pane" class="tab-pane" role="tabpanel" aria-labelledby="projects-tab">
         <h4 class="sketch-font text-2xl font-bold mb-5 text-indigo-700">Featured Projects</h4>
          <div class="prose prose-lg max-w-none text-slate-700 mb-8">
             <p>Here are some of the projects I've worked on, showcasing my skills in design and development.</p>
          </div>
 
-         <!-- Grid layout for projects with enhanced styling & hover -->
          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <!-- Project Item Card -->
             <div class="group bg-slate-50/70 p-5 rounded-xl border border-slate-200 shadow-md hover:shadow-xl transform hover:-translate-y-1.5 transition-all duration-300 ease-out">
                 <div class="overflow-hidden rounded-lg mb-4 shadow-inner">
                     <img src="https://i.ibb.co/HfGX9LwZ/art-prompt.png" alt="Art Prompt Generator Screenshot"
@@ -209,20 +184,39 @@
                 <p class="text-sm text-slate-600 mb-3">A fun tool built with [mention tech, e.g., HTML, CSS, JS] to spark creativity for artists.</p>
                 <a href="#" class="inline-block text-sm font-medium text-indigo-600 hover:text-indigo-800 transition-colors duration-200">View Details <span aria-hidden="true">→</span></a>
             </div>
-             <!-- Project Item Card -->
+
             <div class="group bg-slate-50/70 p-5 rounded-xl border border-slate-200 shadow-md hover:shadow-xl transform hover:-translate-y-1.5 transition-all duration-300 ease-out">
                  <div class="overflow-hidden rounded-lg mb-4 shadow-inner">
                     <img src="https://i.ibb.co/PvJnZhqw/figma.png" alt="Figma Design"
                          class="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-300 ease-out">
                  </div>
                 <h5 class="sketch-font font-semibold text-lg mb-2 text-slate-800">UI/UX Design (Figma)</h5>
-                <p class="text-sm text-slate-600 mb-3">Conceptual design for a [mention app type, e.g., mobile banking app] focusing on user experience.</p>
+                <p class="text-sm text-slate-600 mb-3">Conceptual design for a laundry shop mobile application, focusing on user experience and booking flow.</p>
                 <a href="#" class="inline-block text-sm font-medium text-indigo-600 hover:text-indigo-800 transition-colors duration-200">See Prototype <span aria-hidden="true">→</span></a>
+            </div>
+
+             <div class="group bg-slate-50/70 p-5 rounded-xl border border-slate-200 shadow-md hover:shadow-xl transform hover:-translate-y-1.5 transition-all duration-300 ease-out">
+                <div class="overflow-hidden rounded-lg mb-4 shadow-inner">
+                    <img src="https://i.ibb.co/VcnhMXzT/Capture.png" alt="CRUD System Screenshot"
+                         class="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-300 ease-out border border-slate-100">
+                </div>
+                <h5 class="sketch-font font-semibold text-lg mb-2 text-slate-800">Database CRUD System</h5>
+                <p class="text-sm text-slate-600 mb-3">A basic CRUD (Create, Read, Update, Delete) application designed for managing database entries. [Optionally mention tech used, e.g., Built with PHP/MySQL].</p>
+                <a href="#" class="inline-block text-sm font-medium text-indigo-600 hover:text-indigo-800 transition-colors duration-200">View Details <span aria-hidden="true">→</span></a>
+            </div>
+
+            <div class="group bg-slate-50/70 p-5 rounded-xl border border-slate-200 shadow-md hover:shadow-xl transform hover:-translate-y-1.5 transition-all duration-300 ease-out">
+                <div class="overflow-hidden rounded-lg mb-4 shadow-inner">
+                    <img src="https://i.ibb.co/N2MDXYYb/Capture.png" alt="Favorite Song Page Screenshot"
+                         class="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-300 ease-out border border-slate-100">
+                </div>
+                <h5 class="sketch-font font-semibold text-lg mb-2 text-slate-800">Favorite Song Page</h5>
+                <p class="text-sm text-slate-600 mb-3">A web page created using HTML & CSS to showcase a music video, embedded audio, and lyrics for a favorite song.</p>
+                <a href="#" class="inline-block text-sm font-medium text-indigo-600 hover:text-indigo-800 transition-colors duration-200">View Page <span aria-hidden="true">→</span></a>
             </div>
          </div>
       </div>
 
-      <!-- Others Tab -->
       <div id="others-tab-pane" class="tab-pane" role="tabpanel" aria-labelledby="others-tab">
         <h4 class="sketch-font text-2xl font-bold mb-5 text-indigo-700">More About Me</h4>
         <div class="prose prose-lg max-w-none text-slate-700 space-y-4">
@@ -238,73 +232,56 @@
          </div>
       </div>
 
-    </div> <!-- End Tab Content Area -->
+    </div>
 
-  </div> <!-- End Container -->
+  </div>
 
-  <!-- JavaScript for Tab Functionality & Animations -->
   <script>
     const tabButtons = document.querySelectorAll('.tab-button');
     const tabPanes = document.querySelectorAll('.tab-pane');
-    const tabContentContainer = document.querySelector('.bg-white.border.rounded-b-2xl'); // Target the content area
+    const tabContentContainer = document.querySelector('.bg-white.border.rounded-b-2xl');
 
     tabButtons.forEach(button => {
       button.addEventListener('click', () => {
         const targetPaneId = button.getAttribute('data-tab');
         const targetPane = document.getElementById(targetPaneId);
 
-        // --- Button States ---
         tabButtons.forEach(btn => btn.classList.remove('active'));
         button.classList.add('active');
 
-        // --- Pane Visibility & Animation ---
-        // 1. Hide all panes immediately (to reset animation state if needed)
         tabPanes.forEach(pane => {
-            pane.classList.remove('active'); // Remove active class immediately
-            pane.style.display = 'none';     // Ensure it's hidden
+            pane.classList.remove('active');
+            pane.style.display = 'none';
         });
 
-        // 2. Show and animate the target pane
         if (targetPane) {
-            // Set display to block *before* adding 'active' to allow transition
             targetPane.style.display = 'block';
-
-            // Use requestAnimationFrame to ensure the display change is rendered
-            // before adding the class that triggers the transition.
             requestAnimationFrame(() => {
-                requestAnimationFrame(() => { // Double rAF for robustness in some browsers
+                requestAnimationFrame(() => {
                      targetPane.classList.add('active');
                 });
             });
         }
-
-         // Optional: Adjust container height smoothly (can be complex)
-         // A simple approach is to set a min-height and let content expand
-         // For smoother height transition, you might need JS to calculate heights.
       });
     });
 
-     // --- Initial State ---
      document.addEventListener('DOMContentLoaded', () => {
         let activePaneFound = false;
         tabPanes.forEach(pane => {
             if (pane.classList.contains('active')) {
-                 pane.style.display = 'block'; // Show the initial active pane
+                 pane.style.display = 'block';
                  activePaneFound = true;
             } else {
-                pane.style.display = 'none'; // Hide others
+                pane.style.display = 'none';
             }
         });
 
-        // Ensure the default active button has its styles applied correctly
-        document.querySelector('.tab-button.active')?.classList.add('active'); // Redundant but safe
+        document.querySelector('.tab-button.active')?.classList.add('active');
 
-        // Trigger initial animation for the first active pane
         const initialActivePane = document.querySelector('.tab-pane.active');
         if (initialActivePane) {
              requestAnimationFrame(() => {
                 requestAnimationFrame(() => {
-                    // Already has 'active', no need to add again, opacity/transform handled by CSS
                 });
              });
         }
