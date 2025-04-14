@@ -12,9 +12,10 @@
         body {
             font-family: 'Inter', sans-serif;
         }
-        .sketch-font {
-           /* font-family: 'Your Sketch Font Name', cursive; */
-        }
+        /* If you have a specific sketch font, uncomment and add its name */
+        /* .sketch-font {
+           font-family: 'Your Sketch Font Name', cursive;
+        } */
 
         .tab-button {
             @apply relative py-3 px-5 transition-colors duration-300 ease-out;
@@ -106,7 +107,7 @@
         </div>
 
         <h3 class="font-extrabold text-3xl md:text-4xl mb-1 text-zinc-900 sketch-font">Julianna Reigh Denolan</h3>
-        <p class="text-teal-600 mb-6 text-xl sketch-font font-medium">Aspiring IT Professional</p>
+        <p class="text-teal-600 mb-6 text-xl sketch-font font-medium">Aspiring IT Professional & Freelance Artist</p> {/* Updated Title */}
 
         <div class="flex justify-center gap-4 mb-8">
           <a href="#" aria-label="GitHub Profile" title="GitHub"
@@ -117,7 +118,7 @@
              class="bg-zinc-100 text-zinc-700 hover:bg-teal-500 hover:text-white transform hover:scale-110 hover:-translate-y-1 transition-all duration-300 ease-out rounded-full w-12 h-12 flex items-center justify-center shadow-md hover:shadow-lg">
              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
           </a>
-          <a href="#" aria-label="Email" title="Email"
+          <a href="mailto:julradenolan@addu.edu.ph" aria-label="Email" title="Email"
              class="bg-zinc-100 text-zinc-700 hover:bg-teal-500 hover:text-white transform hover:scale-110 hover:-translate-y-1 transition-all duration-300 ease-out rounded-full w-12 h-12 flex items-center justify-center shadow-md hover:shadow-lg">
              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
           </a>
@@ -160,10 +161,10 @@
         <h4 class="sketch-font text-2xl font-bold mb-5 text-teal-700">My Education</h4>
         <div class="prose prose-lg max-w-none text-zinc-700 space-y-4">
           <p>Currently pursuing a <strong class="font-semibold text-zinc-800">Bachelor of Science in Information Technology</strong> at <strong class="font-semibold text-zinc-800">Ateneo de Davao University</strong>.</p>
-          <p>Focused on developing a strong foundation in software development, web technologies, and system analysis. Eager to apply learned concepts to real-world challenges.</p>
+          <p>Focused on developing a strong foundation in software development, web technologies, and system analysis. Eager to apply learned concepts to real-world challenges and integrate them with creative pursuits.</p>
           <ul class="list-disc pl-5 space-y-2">
-            <li>Relevant Coursework: Data Structures & Algorithms, Object-Oriented Programming, Web Development, Database Management Systems.</li>
-            <li>Academic Achievement: [Mention any specific achievement, e.g., Dean's List, specific project grade]</li>
+            <li>Relevant Coursework: Data Structures & Algorithms, Object-Oriented Programming, Web Development, Database Management Systems, Human-Computer Interaction.</li>
+            <li>Academic Achievement: <strong class="font-semibold text-zinc-800">Dean's Lister</strong> (SY 2022-2023 - Second Year), <strong class="font-semibold text-zinc-800">President's Lister</strong> (SY 2021-2022 - First Year).</li> {/* Updated Academic Achievement */}
           </ul>
         </div>
       </div>
@@ -181,8 +182,8 @@
                          class="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-300 ease-out">
                 </div>
                 <h5 class="sketch-font font-semibold text-lg mb-2 text-zinc-800">Art Prompt Generator</h5>
-                <p class="text-sm text-zinc-600 mb-3">A fun tool built with [mention tech, e.g., HTML, CSS, JS] to spark creativity for artists.</p>
-                <a href="#" class="inline-block text-sm font-medium text-teal-600 hover:text-teal-800 transition-colors duration-200">View Details <span aria-hidden="true">→</span></a>
+                <p class="text-sm text-zinc-600 mb-3">A fun tool built with HTML, CSS, and JavaScript to spark creativity for artists by generating random prompts.</p>
+                {/* Link Removed */}
             </div>
 
             <div class="group bg-zinc-50/70 p-5 rounded-xl border border-zinc-200 shadow-md hover:shadow-xl transform hover:-translate-y-1.5 transition-all duration-300 ease-out">
@@ -191,8 +192,8 @@
                          class="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-300 ease-out">
                  </div>
                 <h5 class="sketch-font font-semibold text-lg mb-2 text-zinc-800">UI/UX Design (Figma)</h5>
-                <p class="text-sm text-zinc-600 mb-3">Conceptual design for a laundry shop mobile application, focusing on user experience and booking flow.</p>
-                <a href="#" class="inline-block text-sm font-medium text-teal-600 hover:text-teal-800 transition-colors duration-200">See Prototype <span aria-hidden="true">→</span></a>
+                <p class="text-sm text-zinc-600 mb-3">Conceptual design and prototype for a laundry shop mobile application, created in Figma with a focus on user experience and intuitive booking flow.</p>
+                 {/* Link Removed */}
             </div>
 
              <div class="group bg-zinc-50/70 p-5 rounded-xl border border-zinc-200 shadow-md hover:shadow-xl transform hover:-translate-y-1.5 transition-all duration-300 ease-out">
@@ -201,8 +202,8 @@
                          class="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-300 ease-out border border-zinc-100">
                 </div>
                 <h5 class="sketch-font font-semibold text-lg mb-2 text-zinc-800">Database CRUD System</h5>
-                <p class="text-sm text-zinc-600 mb-3">A basic CRUD (Create, Read, Update, Delete) application designed for managing database entries. [Optionally mention tech used, e.g., Built with PHP/MySQL].</p>
-                <a href="#" class="inline-block text-sm font-medium text-teal-600 hover:text-teal-800 transition-colors duration-200">View Details <span aria-hidden="true">→</span></a>
+                <p class="text-sm text-zinc-600 mb-3">A basic CRUD (Create, Read, Update, Delete) application designed for managing student records, implemented using web technologies and demonstrating database interaction.</p>
+                 {/* Link Removed */}
             </div>
 
             <div class="group bg-zinc-50/70 p-5 rounded-xl border border-zinc-200 shadow-md hover:shadow-xl transform hover:-translate-y-1.5 transition-all duration-300 ease-out">
@@ -211,8 +212,8 @@
                          class="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-300 ease-out border border-zinc-100">
                 </div>
                 <h5 class="sketch-font font-semibold text-lg mb-2 text-zinc-800">Favorite Song Page</h5>
-                <p class="text-sm text-zinc-600 mb-3">A web page created using HTML & CSS to showcase a music video, embedded audio, and lyrics for a favorite song.</p>
-                <a href="#" class="inline-block text-sm font-medium text-teal-600 hover:text-teal-800 transition-colors duration-200">View Page <span aria-hidden="true">→</span></a>
+                <p class="text-sm text-zinc-600 mb-3">A simple web page created using HTML & CSS to showcase a music video, embedded audio player, and lyrics for a favorite song, practicing fundamental web layout and styling.</p>
+                 {/* Link Removed */}
             </div>
          </div>
       </div>
@@ -220,15 +221,11 @@
       <div id="others-tab-pane" class="tab-pane" role="tabpanel" aria-labelledby="others-tab">
         <h4 class="sketch-font text-2xl font-bold mb-5 text-teal-700">More About Me</h4>
         <div class="prose prose-lg max-w-none text-zinc-700 space-y-4">
-            <p>Beyond academics and coding, I'm passionate about [mention a hobby, e.g., digital art, learning new languages, volunteering].</p>
-            <p>I'm always eager to learn new technologies and methodologies. Currently exploring [mention something you're learning, e.g., React Native, advanced CSS animations, cloud platforms].</p>
-            <h5 class="font-semibold text-zinc-800 !mb-2 !mt-6">Certifications / Workshops</h5>
-            <ul class="list-disc pl-5 space-y-2">
-                <li>[Certification Name] - [Issuing Body] - [Year]</li>
-                <li>[Workshop Name] - [Organization] - [Date]</li>
-                <li>(Add more or remove if not applicable)</li>
-            </ul>
-             <p class="mt-6">Feel free to <a href="mailto:julradenolan@addu.edu.ph" class="text-teal-600 hover:text-teal-800 font-medium">reach out</a> if you'd like to connect!</p>
+            <p>Beyond my IT studies, I'm deeply passionate about <strong class="font-semibold text-zinc-800">digital art and illustration</strong>. I operate as a <strong class="font-semibold text-zinc-800">freelance artist</strong>, creating commissioned pieces and exploring different visual styles.</p>
+            <p>My journey into Information Technology is driven by a desire to <strong class="font-semibold text-teal-700">merge my creative skills with technical knowledge</strong>. I'm fascinated by how coding and technology can enhance the artistic process, whether through creating custom digital tools, developing interactive web experiences, or exploring generative art.</p>
+            <p>I'm always eager to learn and experiment. Currently, I'm focusing on strengthening my front-end development skills and exploring ways to build more dynamic and visually engaging web applications that could potentially serve the creative community or showcase artistic work in new ways.</p>
+            {/* Removed Certifications/Workshops Placeholder */}
+             <p class="mt-6">Feel free to <a href="mailto:julradenolan@addu.edu.ph" class="text-teal-600 hover:text-teal-800 font-medium">reach out</a> if you'd like to connect about tech, art, or potential collaborations!</p>
          </div>
       </div>
 
@@ -246,45 +243,81 @@
         const targetPaneId = button.getAttribute('data-tab');
         const targetPane = document.getElementById(targetPaneId);
 
+        // Update Active Button
         tabButtons.forEach(btn => btn.classList.remove('active'));
         button.classList.add('active');
 
+        // Update Active Pane (with transition handling)
         tabPanes.forEach(pane => {
-            pane.classList.remove('active');
-            pane.style.display = 'none';
-        });
-
-        if (targetPane) {
-            targetPane.style.display = 'block';
-            requestAnimationFrame(() => {
-                requestAnimationFrame(() => {
-                     targetPane.classList.add('active');
-                });
-            });
-        }
-      });
-    });
-
-     document.addEventListener('DOMContentLoaded', () => {
-        let activePaneFound = false;
-        tabPanes.forEach(pane => {
-            if (pane.classList.contains('active')) {
-                 pane.style.display = 'block';
-                 activePaneFound = true;
+            if (pane.id === targetPaneId) {
+                // If it's the target, prepare to show it
+                if (!pane.classList.contains('active')) {
+                    pane.style.display = 'block';
+                    // Force reflow before adding class for transition
+                    void pane.offsetWidth;
+                    pane.classList.add('active');
+                }
             } else {
-                pane.style.display = 'none';
+                // If it's not the target, hide it
+                if (pane.classList.contains('active')) {
+                    pane.classList.remove('active');
+                    // Add a slight delay before setting display none to allow fade out
+                    pane.addEventListener('transitionend', function handleTransitionEnd() {
+                        pane.style.display = 'none';
+                        pane.removeEventListener('transitionend', handleTransitionEnd);
+                    });
+                } else {
+                     pane.style.display = 'none'; // Hide inactive panes immediately if they weren't fading
+                }
             }
         });
 
-        document.querySelector('.tab-button.active')?.classList.add('active');
-
-        const initialActivePane = document.querySelector('.tab-pane.active');
-        if (initialActivePane) {
-             requestAnimationFrame(() => {
-                requestAnimationFrame(() => {
-                });
-             });
+        // Ensure the newly activated pane is visible even if transition listener doesn't fire fast enough
+        if (targetPane && !targetPane.classList.contains('active')) {
+             targetPane.style.display = 'block';
+             void targetPane.offsetWidth; // Reflow
+             targetPane.classList.add('active');
+        } else if (targetPane) {
+             targetPane.style.display = 'block'; // Ensure it stays block if already active
         }
+
+      });
+    });
+
+     // Initial setup on load
+     document.addEventListener('DOMContentLoaded', () => {
+        let activePaneFound = false;
+        const initialActiveButton = document.querySelector('.tab-button.active');
+        const initialActivePaneId = initialActiveButton?.getAttribute('data-tab');
+
+        tabPanes.forEach(pane => {
+            if (pane.id === initialActivePaneId) {
+                 pane.style.display = 'block';
+                 // No need to force transition on initial load, just set active
+                 pane.classList.add('active');
+                 activePaneFound = true;
+            } else {
+                pane.style.display = 'none';
+                pane.classList.remove('active');
+            }
+        });
+
+        // Fallback if no button/pane marked active initially (shouldn't happen with current HTML)
+        if (!activePaneFound && tabButtons.length > 0 && tabPanes.length > 0) {
+            tabButtons[0].classList.add('active');
+            tabPanes[0].style.display = 'block';
+            tabPanes[0].classList.add('active');
+        }
+
+        // Ensure animations apply after initial load if needed
+        const animatedElements = document.querySelectorAll('.animate-fadeInUp, .skill-pill');
+         animatedElements.forEach(el => {
+             // Reset animation for visibility
+             el.style.opacity = '0'; // Start hidden
+             requestAnimationFrame(() => {
+                el.style.opacity = ''; // Let CSS animation take over
+             });
+         });
      });
   </script>
 
