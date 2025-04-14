@@ -107,7 +107,7 @@
         </div>
 
         <h3 class="font-extrabold text-3xl md:text-4xl mb-1 text-zinc-900 sketch-font">Julianna Reigh Denolan</h3>
-        <p class="text-teal-600 mb-6 text-xl sketch-font font-medium">Aspiring IT Professional & Freelance Artist</p> {/* Updated Title */}
+        <p class="text-teal-600 mb-6 text-xl sketch-font font-medium">Aspiring IT Professional & Freelance Artist</p>
 
         <div class="flex justify-center gap-4 mb-8">
           <a href="#" aria-label="GitHub Profile" title="GitHub"
@@ -164,7 +164,7 @@
           <p>Focused on developing a strong foundation in software development, web technologies, and system analysis. Eager to apply learned concepts to real-world challenges and integrate them with creative pursuits.</p>
           <ul class="list-disc pl-5 space-y-2">
             <li>Relevant Coursework: Data Structures & Algorithms, Object-Oriented Programming, Web Development, Database Management Systems, Human-Computer Interaction.</li>
-            <li>Academic Achievement: <strong class="font-semibold text-zinc-800">Dean's Lister</strong> (SY 2022-2023 - Second Year), <strong class="font-semibold text-zinc-800">President's Lister</strong> (SY 2021-2022 - First Year).</li> {/* Updated Academic Achievement */}
+            <li>Academic Achievement: <strong class="font-semibold text-zinc-800">Dean's Lister</strong> (SY 2022-2023 - Second Year), <strong class="font-semibold text-zinc-800">President's Lister</strong> (SY 2021-2022 - First Year).</li>
           </ul>
         </div>
       </div>
@@ -183,7 +183,6 @@
                 </div>
                 <h5 class="sketch-font font-semibold text-lg mb-2 text-zinc-800">Art Prompt Generator</h5>
                 <p class="text-sm text-zinc-600 mb-3">A fun tool built with HTML, CSS, and JavaScript to spark creativity for artists by generating random prompts.</p>
-                {/* Link Removed */}
             </div>
 
             <div class="group bg-zinc-50/70 p-5 rounded-xl border border-zinc-200 shadow-md hover:shadow-xl transform hover:-translate-y-1.5 transition-all duration-300 ease-out">
@@ -193,7 +192,6 @@
                  </div>
                 <h5 class="sketch-font font-semibold text-lg mb-2 text-zinc-800">UI/UX Design (Figma)</h5>
                 <p class="text-sm text-zinc-600 mb-3">Conceptual design and prototype for a laundry shop mobile application, created in Figma with a focus on user experience and intuitive booking flow.</p>
-                 {/* Link Removed */}
             </div>
 
              <div class="group bg-zinc-50/70 p-5 rounded-xl border border-zinc-200 shadow-md hover:shadow-xl transform hover:-translate-y-1.5 transition-all duration-300 ease-out">
@@ -203,7 +201,6 @@
                 </div>
                 <h5 class="sketch-font font-semibold text-lg mb-2 text-zinc-800">Database CRUD System</h5>
                 <p class="text-sm text-zinc-600 mb-3">A basic CRUD (Create, Read, Update, Delete) application designed for managing student records, implemented using web technologies and demonstrating database interaction.</p>
-                 {/* Link Removed */}
             </div>
 
             <div class="group bg-zinc-50/70 p-5 rounded-xl border border-zinc-200 shadow-md hover:shadow-xl transform hover:-translate-y-1.5 transition-all duration-300 ease-out">
@@ -213,7 +210,6 @@
                 </div>
                 <h5 class="sketch-font font-semibold text-lg mb-2 text-zinc-800">Favorite Song Page</h5>
                 <p class="text-sm text-zinc-600 mb-3">A simple web page created using HTML & CSS to showcase a music video, embedded audio player, and lyrics for a favorite song, practicing fundamental web layout and styling.</p>
-                 {/* Link Removed */}
             </div>
          </div>
       </div>
@@ -224,7 +220,6 @@
             <p>Beyond my IT studies, I'm deeply passionate about <strong class="font-semibold text-zinc-800">digital art and illustration</strong>. I operate as a <strong class="font-semibold text-zinc-800">freelance artist</strong>, creating commissioned pieces and exploring different visual styles.</p>
             <p>My journey into Information Technology is driven by a desire to <strong class="font-semibold text-teal-700">merge my creative skills with technical knowledge</strong>. I'm fascinated by how coding and technology can enhance the artistic process, whether through creating custom digital tools, developing interactive web experiences, or exploring generative art.</p>
             <p>I'm always eager to learn and experiment. Currently, I'm focusing on strengthening my front-end development skills and exploring ways to build more dynamic and visually engaging web applications that could potentially serve the creative community or showcase artistic work in new ways.</p>
-            {/* Removed Certifications/Workshops Placeholder */}
              <p class="mt-6">Feel free to <a href="mailto:julradenolan@addu.edu.ph" class="text-teal-600 hover:text-teal-800 font-medium">reach out</a> if you'd like to connect about tech, art, or potential collaborations!</p>
          </div>
       </div>
@@ -263,9 +258,11 @@
                     pane.classList.remove('active');
                     // Add a slight delay before setting display none to allow fade out
                     pane.addEventListener('transitionend', function handleTransitionEnd() {
-                        pane.style.display = 'none';
+                        if (!pane.classList.contains('active')) { // Check again in case of rapid clicks
+                            pane.style.display = 'none';
+                        }
                         pane.removeEventListener('transitionend', handleTransitionEnd);
-                    });
+                    }, { once: true }); // Use { once: true } for safety
                 } else {
                      pane.style.display = 'none'; // Hide inactive panes immediately if they weren't fading
                 }
