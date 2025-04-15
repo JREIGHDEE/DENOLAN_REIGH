@@ -11,69 +11,28 @@
     <!-- AOS Library for Scroll Animations -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
-        /* --- Base and Font --- */
         body {
             font-family: 'Inter', sans-serif;
-            /* Animated Gradient Background (Enhancement) */
+            /* Animated Gradient Background */
             background: linear-gradient(-45deg, #e0f2f7, #f0f9ff, #e0f2f7, #fafafa); /* Lighter, softer teal/zinc tones */
             background-size: 400% 400%;
             animation: gradientBG 25s ease infinite;
             overflow-x: hidden; /* Prevent horizontal scrollbar from gradient */
-            /* Original body text color was implicitly default, this ensures consistency */
-            color: theme('colors.zinc.800');
-            /* Original selection style */
-            selection:bg-teal-100 selection:text-teal-700;
-            @apply antialiased;
         }
 
-        /* If you have a specific sketch font, uncomment and add its name */
-        /* .sketch-font {
-           font-family: 'Your Sketch Font Name', cursive;
-        } */
-        /* Fallback sketch font style (using bold Inter) */
-        .sketch-font {
-           font-weight: 700;
-        }
-
-
-        /* --- Keyframe Animations (Original Restored) --- */
-        @keyframes gradientBG { /* For Body Background */
+        @keyframes gradientBG {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
         }
-        @keyframes fadeIn { /* Original */
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        @keyframes fadeInUp { /* Original */
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+
+        /* If you have a specific sketch font, uncomment and add its name */
+        .sketch-font {
+           /* font-family: 'Your Sketch Font Name', cursive; */
+           /* Using Inter bold as a placeholder for the "sketch" feel */
+           font-weight: 700;
         }
 
-        /* --- Animation Utility Classes (Original Restored) --- */
-        .animate-fadeIn { /* Original */
-            animation: fadeIn 0.8s ease-out forwards;
-        }
-        .animate-fadeInUp { /* Original - Use this OR data-aos, not necessarily both on the same element */
-             animation: fadeInUp 0.6s ease-out forwards;
-             opacity: 0; /* Start hidden for animation */
-        }
-
-        /* --- Skill Pill Styling (Original Restored Animation Logic) --- */
-        .skill-pill {
-            @apply rounded-full px-5 py-2 text-sm font-semibold shadow-md hover:shadow-lg transform hover:scale-105 transition-all duration-200 cursor-default;
-            /* Original Animation */
-            opacity: 0;
-            animation: fadeInUp 0.5s ease-out forwards;
-            /* NOTE: animation-delay is applied inline in the HTML */
-        }
-        /* Original specific skill pill colors - applied via bg/text classes in HTML now */
-        /* Example: bg-teal-100 text-teal-800 */
-
-
-        /* --- Tab Navigation Styling --- */
-        /* Enhanced Tab Button Style (Center Underline) - CURRENTLY ACTIVE */
         .tab-button {
             @apply relative py-3 px-4 sm:px-5 transition-all duration-300 ease-out text-zinc-500 hover:text-teal-600;
         }
@@ -86,7 +45,7 @@
             width: 70%; /* Make underline slightly shorter than text */
             height: 3px;
             background-color: theme('colors.teal.500');
-            transform-origin: center center; /* Center origin */
+            transform-origin: center center; /* Changed origin */
             transition: transform 0.3s ease-out;
         }
         .tab-button:hover::after {
@@ -94,59 +53,21 @@
              background-color: theme('colors.teal.300');
         }
         .tab-button:focus {
-            @apply outline-none ring-2 ring-teal-300 ring-offset-2 rounded; /* Focus outline */
+            @apply outline-none ring-2 ring-teal-300 ring-offset-2 rounded;
         }
-        .tab-button.active {
-            @apply text-teal-600; /* Active text color */
-        }
-        .tab-button.active::after {
-            transform: translateX(-50%) scaleX(1); /* Active state full width from center */
-            background-color: theme('colors.teal.500'); /* Active underline color */
-        }
-
-        /* --- Original Tab Button Style (Edge Underline) - COMMENTED OUT --- */
-        /*
-        .tab-button {
-            @apply relative py-3 px-5 transition-colors duration-300 ease-out;
-            @apply text-zinc-600; /* Example base color
-        }
-        .tab-button::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background-color: transparent;
-            transform: scaleX(0);
-            transform-origin: bottom center;
-            transition: transform 0.3s ease-out, background-color 0.3s ease-out;
-            @apply bg-teal-500;
-        }
-        .tab-button:hover::after,
-        .tab-button:focus::after {
-            transform: scaleX(0.8);
-            background-color: theme('colors.teal.300');
-        }
-         .tab-button:focus {
-            @apply outline-none ring-2 ring-teal-300 ring-offset-2 rounded-t-md; /* Original focus
-         }
         .tab-button.active {
             @apply text-teal-600;
         }
         .tab-button.active::after {
-            transform: scaleX(1);
+            transform: translateX(-50%) scaleX(1); /* Active state full width from center */
             background-color: theme('colors.teal.500');
         }
-        */
 
-
-        /* --- Tab Pane Styling (Original Restored Transition) --- */
         .tab-pane {
            display: none;
            opacity: 0;
-           transform: translateY(10px); /* Original value */
-           transition: opacity 0.4s ease-out, transform 0.4s ease-out; /* Original duration */
+           transform: translateY(15px);
+           transition: opacity 0.5s ease-out, transform 0.5s ease-out;
         }
         .tab-pane.active {
             display: block;
@@ -154,15 +75,13 @@
             transform: translateY(0);
         }
 
-
-        /* --- Scrollbar Styling (Original - Unchanged) --- */
+        /* Custom scrollbar remains */
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: theme('colors.zinc.200'); border-radius: 10px; }
         ::-webkit-scrollbar-thumb { background: theme('colors.teal.400'); border-radius: 10px; }
         ::-webkit-scrollbar-thumb:hover { background: theme('colors.teal.500'); }
 
-
-        /* --- Intro Overlay Styles (Enhancement) --- */
+        /* Intro Overlay Styles */
         #intro-overlay {
             position: fixed;
             inset: 0;
@@ -185,20 +104,23 @@
             font-weight: 800;
             color: white;
             opacity: 0;
-            animation: introFadeInOut 2.5s ease-in-out forwards; /* Renamed to avoid conflict */
+            animation: fadeInOut 2.5s ease-in-out forwards; /* Fade in, stay, fade out implicitly via overlay */
             text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
         }
-         @media (min-width: 640px) { #intro-text { font-size: 4rem; } }
-         @media (min-width: 1024px) { #intro-text { font-size: 5rem; } }
+         @media (min-width: 640px) {
+             #intro-text { font-size: 4rem; }
+         }
+         @media (min-width: 1024px) {
+             #intro-text { font-size: 5rem; }
+         }
 
-        @keyframes introFadeInOut { /* Renamed from fadeInOut */
+        @keyframes fadeInOut {
             0% { opacity: 0; transform: scale(0.8); }
             50% { opacity: 1; transform: scale(1.05); }
             100% { opacity: 1; transform: scale(1); } /* Hold opacity for overlay fade */
         }
 
-
-        /* --- Main Content Visibility (Enhancement) --- */
+        /* Main content initially hidden */
         #portfolio-content {
             opacity: 0;
             transition: opacity 0.8s ease-in 0.5s; /* Fade in after intro starts fading */
@@ -207,10 +129,9 @@
             opacity: 1;
         }
 
-
-        /* --- Project Card Enhancements (Enhancement) --- */
+        /* Project Card Enhancements */
         .project-card {
-             @apply bg-white/60 backdrop-blur-sm p-5 rounded-xl border border-zinc-200/80 shadow-lg hover:shadow-xl transform hover:-translate-y-1.5 transition-all duration-300 ease-out overflow-hidden;
+             @apply bg-white/60 backdrop-blur-sm p-5 rounded-xl border border-zinc-200/80 shadow-lg hover:shadow-xl transform hover:-translate-y-1.5 transition-all duration-300 ease-out overflow-hidden; /* Added overflow hidden */
         }
          .project-card img {
              @apply w-full h-48 object-cover transform group-hover:scale-105 transition-transform duration-300 ease-out; /* Fixed height */
@@ -221,6 +142,12 @@
          .project-card p {
               @apply text-sm text-zinc-600 mb-3;
          }
+
+         /* Skill Pill Enhancements */
+         .skill-pill {
+            @apply rounded-full px-5 py-2 text-sm font-semibold shadow-md hover:shadow-lg transform hover:scale-105 transition-all duration-200 cursor-default;
+         }
+
 
     </style>
 </head>
@@ -235,9 +162,7 @@
   <div id="portfolio-content">
       <div class="container max-w-4xl mx-auto my-16 sm:my-24 px-4">
 
-        <!-- Profile Section - Can use original animate-fadeInUp or data-aos -->
         <div class="bg-white/70 backdrop-blur-md border border-zinc-200/60 rounded-2xl shadow-xl text-center mb-12 p-8 md:p-12" data-aos="fade-up">
-        {/* OR <div class="... animate-fadeInUp" style="animation-delay: 0s;"> */}
             <div class="relative inline-block mb-6 group">
                 <img src="https://i.ibb.co/p8v5r1r/face-picture.jpg" alt="Denolan Profile Photo"
                      class="rounded-full mx-auto block w-40 h-40 sm:w-44 sm:h-44 border-4 border-white shadow-lg transition-transform duration-300 ease-out group-hover:scale-105">
@@ -263,8 +188,7 @@
               </a>
             </div>
 
-            {/* Skill Pills - Using original CSS animation with inline delays */}
-            <div class="flex justify-center flex-wrap gap-3">
+            <div class="flex justify-center flex-wrap gap-3" data-aos="fade-up" data-aos-delay="100">
                 <span class="skill-pill bg-teal-100 text-teal-800 sketch-font" style="animation-delay: 0.1s;">HTML</span>
                 <span class="skill-pill bg-teal-100 text-teal-800 sketch-font" style="animation-delay: 0.15s;">CSS</span>
                 <span class="skill-pill bg-teal-100 text-teal-800 sketch-font" style="animation-delay: 0.2s;">JavaScript</span>
@@ -279,16 +203,17 @@
         <div class="sticky top-0 z-30 -mx-4 sm:mx-0 mb-0" data-aos="fade-in">
              <div class="bg-white/80 backdrop-blur-lg border-b border-zinc-200/80 shadow-sm sm:rounded-t-xl overflow-hidden">
                 <nav class="flex justify-center space-x-2 sm:space-x-6 max-w-xl mx-auto px-2 sm:px-0" aria-label="Tabs">
-                    {/* Using enhanced button style by default */}
                     <button data-tab="background-tab-pane"
                        class="tab-button sketch-font whitespace-nowrap text-base active"
                        aria-current="page">
                       EDUCATION
                     </button>
+
                     <button data-tab="projects-tab-pane"
                        class="tab-button sketch-font whitespace-nowrap text-base">
                       PROJECTS
                     </button>
+
                     <button data-tab="others-tab-pane"
                        class="tab-button sketch-font whitespace-nowrap text-base">
                       OTHERS
@@ -300,10 +225,8 @@
         <!-- Tab Content Area -->
         <div class="bg-white/90 backdrop-blur-sm border border-t-0 border-zinc-200/80 rounded-b-2xl shadow-xl p-8 md:p-10 min-h-[350px] relative overflow-hidden">
 
-          {/* Using original Tab Pane transition (restored in CSS) */}
           <div id="background-tab-pane" class="tab-pane active" role="tabpanel" aria-labelledby="background-tab">
             <h4 class="sketch-font text-2xl font-bold mb-5 text-teal-700">My Education</h4>
-            {/* Using AOS for content reveal on scroll */}
             <div class="prose prose-lg max-w-none text-zinc-700 space-y-4">
               <p data-aos="fade-up" data-aos-delay="50">Currently pursuing a <strong class="font-semibold text-zinc-900">Bachelor of Science in Information Technology</strong> at <strong class="font-semibold text-zinc-900">Ateneo de Davao University</strong>.</p>
               <p data-aos="fade-up" data-aos-delay="100">Focused on developing a strong foundation in software development, web technologies, and system analysis. Eager to apply learned concepts to real-world challenges and integrate them with creative pursuits.</p>
@@ -321,14 +244,15 @@
              </div>
 
              <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                {/* Using Project Card enhanced style + AOS */}
+                <!-- Project Cards with AOS -->
                 <div class="group project-card" data-aos="fade-up" data-aos-delay="50">
-                    <div class="rounded-lg mb-4 shadow-inner bg-zinc-100">
+                    <div class="rounded-lg mb-4 shadow-inner bg-zinc-100"> {/* Added bg color for loading */}
                         <img src="https://i.ibb.co/HfGX9Lw/art-prompt.png" alt="Art Prompt Generator Screenshot" loading="lazy">
                     </div>
                     <h5>Art Prompt Generator</h5>
                     <p>A fun tool built with HTML, CSS, and JavaScript to spark creativity for artists by generating random prompts.</p>
                 </div>
+
                 <div class="group project-card" data-aos="fade-up" data-aos-delay="100">
                      <div class="rounded-lg mb-4 shadow-inner bg-zinc-100">
                         <img src="https://i.ibb.co/PvJnZhqw/figma.png" alt="Figma Design" loading="lazy">
@@ -336,6 +260,7 @@
                     <h5>UI/UX Design (Figma)</h5>
                     <p>Conceptual design and prototype for a laundry shop mobile application, focusing on user experience and intuitive flow.</p>
                 </div>
+
                  <div class="group project-card" data-aos="fade-up" data-aos-delay="150">
                     <div class="rounded-lg mb-4 shadow-inner bg-zinc-100">
                         <img src="https://i.ibb.co/VcnhMXzT/Capture.png" alt="CRUD System Screenshot" loading="lazy" class="border border-zinc-100">
@@ -343,6 +268,7 @@
                     <h5>Database CRUD System</h5>
                     <p>A basic CRUD application for managing student records, demonstrating web tech and database interaction.</p>
                 </div>
+
                 <div class="group project-card" data-aos="fade-up" data-aos-delay="200">
                     <div class="rounded-lg mb-4 shadow-inner bg-zinc-100">
                         <img src="https://i.ibb.co/N2MDXYYb/Capture.png" alt="Favorite Song Page Screenshot" loading="lazy" class="border border-zinc-100">
@@ -356,7 +282,6 @@
           <div id="others-tab-pane" class="tab-pane" role="tabpanel" aria-labelledby="others-tab">
             <h4 class="sketch-font text-2xl font-bold mb-5 text-teal-700">More About Me</h4>
             <div class="prose prose-lg max-w-none text-zinc-700 space-y-4">
-                {/* Using AOS for paragraph reveal */}
                 <p data-aos="fade-up" data-aos-delay="50">Beyond IT, I'm deeply passionate about <strong class="font-semibold text-zinc-900">digital art and illustration</strong>, operating as a <strong class="font-semibold text-zinc-900">freelance artist</strong> creating commissioned pieces.</p>
                 <p data-aos="fade-up" data-aos-delay="100">My IT journey aims to <strong class="font-semibold text-teal-700">merge creative skills with technical knowledge</strong>. I'm fascinated by how tech can enhance art, like creating digital tools or interactive web experiences.</p>
                 <p data-aos="fade-up" data-aos-delay="150">Always learning, I'm currently strengthening front-end skills and exploring dynamic web applications for the creative community.</p>
@@ -372,23 +297,27 @@
   <!-- AOS JS -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
-    // --- Intro Animation Logic (Unchanged) ---
+    // --- Intro Animation Logic ---
     const introOverlay = document.getElementById('intro-overlay');
     const portfolioContent = document.getElementById('portfolio-content');
 
     window.addEventListener('load', () => {
+        // Start the intro text animation (already running via CSS)
+        // Set timeout to hide the overlay
         setTimeout(() => {
-            introOverlay.classList.add('hidden');
+            introOverlay.classList.add('hidden'); // Start fade out
+            // Show the main content after the overlay starts fading
             portfolioContent.classList.add('visible');
-             // Initialize AOS *after* main content starts becoming visible
+             // Initialize AOS after main content starts becoming visible
              AOS.init({
-                 duration: 600,
-                 once: true,
-                 offset: 50,
-                 delay: 100,
+                 duration: 600, // Animation duration
+                 once: true, // Animate only once
+                 offset: 50, // Offset (in px) from the original trigger point
+                 delay: 100, // Delay animation start
              });
-        }, 2800); // Adjust time if needed
+        }, 2800); // Adjust time (milliseconds) as needed (should be slightly longer than intro text animation)
 
+        // Optional: Remove the overlay from DOM after transition for performance
         introOverlay.addEventListener('transitionend', () => {
             if (introOverlay.classList.contains('hidden')) {
                 introOverlay.style.display = 'none';
@@ -397,7 +326,7 @@
     });
 
 
-    // --- Tab Switching Logic (Adapted for restored tab pane transition) ---
+    // --- Tab Switching Logic (Remains largely the same) ---
     const tabButtons = document.querySelectorAll('.tab-button');
     const tabPanes = document.querySelectorAll('.tab-pane');
 
@@ -414,61 +343,55 @@
         tabPanes.forEach(pane => {
             if (pane.id === targetPaneId) {
                 if (!pane.classList.contains('active')) {
-                    // Ensure display is block before adding 'active' for transition
                     pane.style.display = 'block';
-                    // Use requestAnimationFrame to ensure 'display: block' is rendered
-                    // before the 'active' class triggers the transition
-                    requestAnimationFrame(() => {
-                        pane.classList.add('active');
-                        // Refresh AOS for any newly revealed animated elements inside the tab
-                        AOS.refreshHard();
+                    // Force reflow might not be strictly needed with timeout
+                    requestAnimationFrame(() => { // Use rAF for smoother start
+                       requestAnimationFrame(() => {
+                           pane.classList.add('active');
+                           // Re-trigger AOS animations for newly visible elements in the tab
+                           AOS.refreshHard();
+                       });
                     });
                 }
             } else {
                 if (pane.classList.contains('active')) {
                     pane.classList.remove('active');
-                    // Use transitionend listener to set display: none after fade out
+                    // Hide after transition
                     pane.addEventListener('transitionend', function handleHide() {
-                        // Check again it's still meant to be hidden
                         if (!pane.classList.contains('active')) {
-                            pane.style.display = 'none';
+                             pane.style.display = 'none';
                         }
-                        // Clean up listener
                         pane.removeEventListener('transitionend', handleHide);
                     }, { once: true });
                 } else {
-                     // If already hidden and not active, ensure display is none
-                     pane.style.display = 'none';
+                    pane.style.display = 'none'; // Ensure it's hidden if not active
                 }
             }
         });
       });
     });
 
-     // --- Initial Tab Setup (Should work fine with restored CSS) ---
+     // Initial Tab Setup (Runs after intro fade) - No major change needed here
+     // The initial active states are set in HTML
      document.addEventListener('DOMContentLoaded', () => {
+        // Find the initially active tab and ensure it's displayed correctly.
+        // This setup should run fine even before the intro animation finishes,
+        // as the content is hidden by the parent container initially.
         const initialActiveButton = document.querySelector('.tab-button.active');
         const initialActivePaneId = initialActiveButton?.getAttribute('data-tab');
         const initialActivePane = document.getElementById(initialActivePaneId);
 
         tabPanes.forEach(pane => {
             if (pane === initialActivePane) {
-                 pane.style.display = 'block';
-                 // Add active class immediately on load for the default tab
-                 // This ensures it's visible without needing a click/transition
-                 pane.classList.add('active');
-                 // Ensure its initial state for animation is correct (opacity 1, translateY 0)
-                 pane.style.opacity = 1;
-                 pane.style.transform = 'translateY(0)';
+                pane.style.display = 'block'; // Ensure it's block for transition
+                // 'active' class will be added by the logic above if needed,
+                // or is already present from HTML. We don't force transition here.
+                // pane.classList.add('active'); // Already has it from HTML
             } else {
                 pane.style.display = 'none';
                 pane.classList.remove('active');
             }
         });
-
-        // Trigger initial animations for elements visible on load (like skill pills)
-        // The CSS handles the .skill-pill animation automatically now.
-        // If using .animate-fadeInUp on initial elements, they should also trigger.
      });
 
   </script>
